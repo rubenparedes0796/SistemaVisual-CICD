@@ -1,0 +1,48 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  name: Default
+  demands:
+  - agent.name -equal sv-win-ba01
+  
+jobs:
+- job: BuildJob
+  
+  steps:
+  - checkout: self
+    clean: true
+    displayName: 'Limpieza y Descarga de Repositorio'
+
+  - script: |
+      cd $(Build.SourcesDirectory/ci-scripts)
+      build.bat
+    displayName: 'Construye el Sistema de Vision'
+
+  - script: |
+      cd $(Build.SourcesDirectory/ci-scripts)
+      test.bat
+    displayName: 'Ejecución de las pruebas automatizadas'
+
+  - script: |
+      cd $(Build.SourcesDirectory/ci-scripts)
+      scan.bat
+    displayName: 'Analisis de Código'
+
+  - script: |
+      cd $(Build.SourcesDirectory/ci-scripts)
+      sign.bat
+    displayName: 'Firma de Código'
+
+  - script: |
+      cd $(Build.SourcesDirectory/ci-scripts)
+      stage.bat
+    displayName: 'Analisis de Código'
+
+
+
