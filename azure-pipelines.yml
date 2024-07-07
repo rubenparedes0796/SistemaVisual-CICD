@@ -20,7 +20,7 @@ jobs:
     displayName: 'Limpieza y Descarga de Repositorio'
 
   - script: |
-      cd $(Build.SourcesDirectory/ci-scripts)
+      cd $(Build.SourcesDirectory)/ci-scripts
       build.bat
     displayName: 'Construye el Sistema de Vision'
 
