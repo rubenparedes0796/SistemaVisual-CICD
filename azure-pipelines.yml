@@ -25,22 +25,22 @@ jobs:
     displayName: 'Construye el Sistema de Vision'
 
   - script: |
-      cd $(Build.SourcesDirectory/ci-scripts)
+      cd $(Build.SourcesDirectory)/ci-scripts
       test.bat
     displayName: 'Ejecución de las pruebas automatizadas'
 
   - script: |
-      cd $(Build.SourcesDirectory/ci-scripts)
+      cd $(Build.SourcesDirectory)/ci-scripts
       scan.bat
     displayName: 'Analisis de Código'
 
   - script: |
-      cd $(Build.SourcesDirectory/ci-scripts)
+      cd $(Build.SourcesDirectory)/ci-scripts
       sign.bat
     displayName: 'Firma de Código'
 
   - script: |
-      cd $(Build.SourcesDirectory/ci-scripts)
+      cd $(Build.SourcesDirectory)/ci-scripts
       stage.bat
     displayName: 'LLevar al area de codigo'
 
