@@ -12,7 +12,7 @@ pool:
   - agent.name -equals sv-win-ba01
   
 jobs:
-- job: BuildJob
+- job: SistemaVisual
   
   steps:
   - checkout: self
@@ -22,7 +22,7 @@ jobs:
   - script: |
       cd $(Build.SourcesDirectory)/ci-scripts
       build.bat
-    displayName: 'Construye el Sistema de Vision'
+    displayName: 'Construye el Sistema Visual'
 
   - script: |
       cd $(Build.SourcesDirectory)/ci-scripts
@@ -43,6 +43,4 @@ jobs:
       cd $(Build.SourcesDirectory)/ci-scripts
       stage.bat
     displayName: 'LLevar al area de codigo'
-
-
 
