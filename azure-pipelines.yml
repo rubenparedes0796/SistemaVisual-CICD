@@ -37,7 +37,7 @@ jobs:
   - script: |
       cd $(Build.SourcesDirectory)/ci-scripts
       scan.bat
-    condition: and(succeded(), ne(variables['Build.Reason'], 'PullRequest'))
+    condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
     displayName: 'Analisis de Código'
 
   - script: |
