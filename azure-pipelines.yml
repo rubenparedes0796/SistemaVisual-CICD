@@ -9,7 +9,7 @@ trigger:
 pool:
   name: Default
   demands:
-  - agent.name -equal sv-win-ba01
+  - agent.description -equals sv-win-ba01
   
 jobs:
 - job: BuildJob
@@ -42,7 +42,7 @@ jobs:
   - script: |
       cd $(Build.SourcesDirectory/ci-scripts)
       stage.bat
-    displayName: 'Analisis de Código'
+    displayName: 'LLevar al area de codigo'
 
 
 
