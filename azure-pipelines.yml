@@ -37,15 +37,18 @@ jobs:
   - script: |
       cd $(Build.SourcesDirectory)/ci-scripts
       scan.bat
+    condition: and(succeded(), ne(variables['Build.Reason'], 'PullRequest'))
     displayName: 'Analisis de Código'
 
   - script: |
       cd $(Build.SourcesDirectory)/ci-scripts
       sign.bat
+    condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
     displayName: 'Firma de Código'
 
   - script: |
       cd $(Build.SourcesDirectory)/ci-scripts
       stage.bat
+    condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
     displayName: 'LLevar al area de codigo'
 
