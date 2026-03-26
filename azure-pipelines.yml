@@ -14,7 +14,7 @@ pr:
 pool:
   name: Default
   demands:
-  - agent.name -equals sv-win-ba01
+  - agent.name -equals PAREDESR5
   
 jobs:
 - job: SistemaVisual
